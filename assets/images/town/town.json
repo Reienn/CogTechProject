@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "cloud1.png",
+	"frame": {"x":0,"y":0,"w":374,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":374,"h":124},
+	"sourceSize": {"w":374,"h":124}
+},
+{
+	"filename": "cloud2.png",
+	"frame": {"x":374,"y":0,"w":245,"h":55},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":245,"h":55},
+	"sourceSize": {"w":245,"h":55}
+},
+{
+	"filename": "cloud3.png",
+	"frame": {"x":619,"y":0,"w":350,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":115},
+	"sourceSize": {"w":350,"h":115}
+},
+{
+	"filename": "house.png",
+	"frame": {"x":0,"y":124,"w":252,"h":289},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":252,"h":289},
+	"sourceSize": {"w":252,"h":289}
+},
+{
+	"filename": "park.png",
+	"frame": {"x":252,"y":124,"w":593,"h":342},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":593,"h":342},
+	"sourceSize": {"w":593,"h":342}
+},
+{
+	"filename": "shop.png",
+	"frame": {"x":0,"y":466,"w":438,"h":261},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":438,"h":261},
+	"sourceSize": {"w":438,"h":261}
+},
+{
+	"filename": "sun.png",
+	"frame": {"x":438,"y":466,"w":251,"h":251},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":251,"h":251},
+	"sourceSize": {"w":251,"h":251}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "town.png",
+	"format": "RGBA8888",
+	"size": {"w":969,"h":727},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c05b74d37eb765599d0024240f81335e:3598b3d563a6cf0bf2e9fa8ac5722279:d48ffdf4da5c3cca14f8a3e878abcd45$"
+}
+}

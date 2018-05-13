@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+html, body, #game{
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas{
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
