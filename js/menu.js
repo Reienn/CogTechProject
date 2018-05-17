@@ -28,19 +28,19 @@ let menuState = {
     },
 
     update: function(){
-        sun.angle += 0.7;
+        sun.angle += game.width*0.0005;
 
-        cloud1.x += 0.5;
+        cloud1.x += game.width*0.0004;
         if(cloud1.x > game.width){
             cloud1.x = -500;
         }
 
-        cloud2.x += 0.4;
+        cloud2.x += game.width*0.0002;
         if(cloud2.x > game.width){
             cloud2.x = -200;
         }
 
-        cloud3.x += 0.6;
+        cloud3.x += game.width*0.0006;
         if(cloud3.x > game.width){
             cloud3.x = -500;
         }

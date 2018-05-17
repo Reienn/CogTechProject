@@ -19,24 +19,24 @@ let parkState = {
     },
 
     update: function(){
-        sun.angle += 0.7;
+        sun.angle += game.width*0.0005;
 
-        cloud1.x += 0.5;
+        cloud1.x += game.width*0.0004;
         if(cloud1.x > game.width){
             cloud1.x = -500;
         }
 
-        cloud2.x += 0.4;
+        cloud2.x += game.width*0.0002;
         if(cloud2.x > game.width){
             cloud2.x = -200;
         }
 
-        cloud3.x += 0.6;
+        cloud3.x += game.width*0.0006;
         if(cloud3.x > game.width){
             cloud3.x = -500;
         }
         
-        this.moveCharacter(boy1, 1000, "right", 4);
+        this.moveCharacter(boy1, 1000, "right", 0.002);
     },
 
     
@@ -49,14 +49,14 @@ let parkState = {
         
         if(direction=="right"){
            if(character.x < destination){
-                character.x += speed;
+                character.x += game.width*speed;
             }else{
                 character.animations.stop(true, false);
                 character.frame = 0;
             }
         }else{
             if(character.x > destination){
-                character.x -= speed;
+                character.x -= game.width*speed;
             }else{
                 character.animations.stop(true, false);
                 character.frame = 0;
