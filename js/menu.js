@@ -1,5 +1,7 @@
 let menuState = {
     create: function(){
+        game.clickSound = game.add.audio('clickSound');
+
         game.townBackground = game.add.sprite(0, 0, 'town_background');
         game.sun = game.add.sprite(525, 150, 'town', 'sun.png');
         game.sun.anchor.setTo(0.5);
@@ -51,18 +53,22 @@ let menuState = {
     },
 
     enterRoom: function(){
+        game.clickSound.play();
         game.state.start('room');
     },
     
     enterPark: function(){
+        game.clickSound.play();
         game.state.start('park');
     },
     
     enterShop: function(){
+        game.clickSound.play();
         game.state.start('shop');
     },
     
     changeFull: function(){
+        game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
         }

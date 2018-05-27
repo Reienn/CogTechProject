@@ -1,5 +1,7 @@
 let roomState = {
     create: function(){
+        game.clickSound = game.add.audio('clickSound');
+        
         game.roomBackground = game.add.sprite(0, 0, 'roomBackground');
         game.furniture = game.add.sprite(0, 0, 'furniture');
         
@@ -59,14 +61,17 @@ let roomState = {
     },
 
     backToMenu: function(){
+        game.clickSound.play();
         game.state.start('menu');
     },
     
     playBlocks: function(){
+        game.clickSound.play();
         game.state.start('blocks');
     },
     
     changeFull: function(){
+        game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
         }

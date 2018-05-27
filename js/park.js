@@ -1,5 +1,7 @@
 let parkState = {
     create: function(){
+        game.clickSound = game.add.audio('clickSound');
+
         game.park = game.add.sprite(0, 0, 'park');
         game.sun = game.add.sprite(525, 150, 'town', 'sun.png');
         game.sun.anchor.setTo(0.5);
@@ -70,10 +72,12 @@ let parkState = {
     },
 
     backToMenu: function(){
+        game.clickSound.play();
         game.state.start('menu');
     },
     
     changeFull: function(){
+        game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
         }

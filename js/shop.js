@@ -1,5 +1,7 @@
 let shopState = {
     create: function(){
+        game.clickSound = game.add.audio('clickSound');
+        
         game.shop = game.add.sprite(0, 0, 'shop');
 
         game.boy1 = game.add.sprite(0, 340, 'boy1');
@@ -48,10 +50,12 @@ let shopState = {
     },
 
     backToMenu: function(){
+        game.clickSound.play();
         game.state.start('menu');
     },
     
     changeFull: function(){
+        game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
         }

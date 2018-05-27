@@ -4,6 +4,10 @@ let hasWon = false;
 
 let blocksState = {
     create: function(){
+        game.clickSound = game.add.audio('clickSound');
+        game.winSound = game.add.audio('winSound');
+        game.putSound = game.add.audio('putSound');
+        
         game.blocksBackground = game.add.sprite(0, 0, 'blocksBackground');
         game.boySitting = game.add.sprite(450, -50, 'boySitting');
         game.blocksPicture = game.add.sprite(game.width - 400, (game.height/2) - 250, 'blocksPicture');
@@ -117,8 +121,7 @@ let blocksState = {
             });
         }
     },
-
-    
+   
     stopDrag: function(currentSprite, endSprite){
         for(let i=0; i < blocksOrder.length; i++){
             
@@ -129,6 +132,7 @@ let blocksState = {
                     if(!element.blockDragging && game.physics.arcade.overlap(currentSprite, element)){
                         currentSprite.input.draggable = false;
                         currentSprite.position.copyFrom(element.position);
+                        game.putSound.play();
                         element.blockDragging = true;
                         points++;
                         game.pointsNumber.setText(points);
@@ -144,25 +148,28 @@ let blocksState = {
                 if(blocksOrder[i].blocks.length == 0 ){
                         
                     if(blocksOrder[i+1]){
-                        blocksOrder[i+1].blocks.forEach(element => {
+                        for(let j=0; j < blocksOrder[i+1].blocks.length; j++){
+                        
                             setTimeout(function(){
                                 game.boySitting.frame = 1;
-                            }, 1000);
+                            }, (j+1)*1000);
                             setTimeout(function(){
-                                element.visible = true;
-                            }, 1000);
+                                blocksOrder[i+1].blocks[j].visible = true;
+                                game.putSound.play();
+                            }, (j+1)*1000);
                             setTimeout(function(){
                                 game.boySitting.frame = 0;
-                            }, 1500);
+                            }, (j+1)*1500);
                            
-                        });
+                        }
                         setTimeout(function(){
                             currentOrder +=2;
-                        }, 1500);
+                        }, blocksOrder[i+1].blocks.length*1500);
                     }else{
                         game.boySitting.frame = 0;
                         hasWon = true;
-                        game.stars.visible = true;
+                        game.winSound.play();
+                        game.stars.visible = true;                        
                     }
                 }        
             }else if(blocksOrder[i].blocks.includes(currentSprite)){
@@ -176,10 +183,12 @@ let blocksState = {
     backToRoom: function(){
         currentOrder = 1;
         hasWon = false;
+        game.clickSound.play();
         game.state.start('room');
     },
     
     changeFull: function(){
+        game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
         }

@@ -1,6 +1,10 @@
 let points = 0;
 let loadState = {
     preload: function(){
+        game.load.audio('winSound', 'assets/audio/win.mp3');
+        game.load.audio('putSound', 'assets/audio/put.mp3');
+        game.load.audio('clickSound', 'assets/audio/click.mp3');
+
         game.load.spritesheet('backButton', 'assets/images/back_button.png', 180, 180);
         game.load.spritesheet('fullButton', 'assets/images/full_button.png', 180, 180);
         game.load.image('star', 'assets/images/star.png');
@@ -42,6 +46,7 @@ let loadState = {
     },
 
     startMenu: function(){
+        game.scale.startFullScreen(false);
         game.state.start('menu');
     }
 };
