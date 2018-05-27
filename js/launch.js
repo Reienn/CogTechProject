@@ -1,4 +1,3 @@
-let boy1;
 let textStyle = {font: "70px Tahoma", fill: "#72c6ff"};
 
 let launchState = {
@@ -9,6 +8,7 @@ let launchState = {
         game.stage.disableVisibilityChange = true;
         game.renderer.renderSession.roundPixels = true;
         game.stage.backgroundColor = "#fff";
+        game.physics.startSystem(Phaser.Physics.ARCADE);
     },
 
     preload: function(){

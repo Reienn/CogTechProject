@@ -1,42 +1,47 @@
 let parkState = {
     create: function(){
         game.park = game.add.sprite(0, 0, 'park');
-        sun = game.add.sprite(525, 150, 'town', 'sun.png');
-        sun.anchor.setTo(0.5);
-        cloud2 = game.add.sprite(800, 40, 'town', 'cloud2.png');
-        cloud1 = game.add.sprite(1250, 15, 'town', 'cloud1.png');
-        cloud3 = game.add.sprite(40, 60, 'town', 'cloud3.png');
+        game.sun = game.add.sprite(525, 150, 'town', 'sun.png');
+        game.sun.anchor.setTo(0.5);
+        game.cloud2 = game.add.sprite(800, 40, 'town', 'cloud2.png');
+        game.cloud1 = game.add.sprite(1250, 15, 'town', 'cloud1.png');
+        game.cloud3 = game.add.sprite(40, 60, 'town', 'cloud3.png');
+
+        game.boy1 = game.add.sprite(0, 340, 'boy1');
 
         game.backButton = game.add.button(100, 100, 'backButton', this.backToMenu, this, 1, 0, 2);
         game.backButton.anchor.setTo(0.5);
 
         game.fullButton = game.add.button(game.width - 100, 100, 'fullButton', this.changeFull, this, 1, 0, 2);
-        game.fullButton.anchor.setTo(0.5); 
+        game.fullButton.anchor.setTo(0.5);
 
-        boy1 = game.add.sprite(0, 340, 'boy1');
+        game.star = game.add.sprite(game.width - 125, game.height - 125, 'star');
+        game.star.anchor.setTo(0.5);
+        game.pointsNumber = game.add.text(game.width - 125, game.height - 125, points, {font: "70px Tahoma", fill: "#7f6c27"});
+        game.pointsNumber.anchor.setTo(0.5);
 
-        this.walkAnimation(boy1, Phaser.Animation.generateFrameNames('boy', 2, 5, '.png', 3), 5);    
+        this.walkAnimation(game.boy1, Phaser.Animation.generateFrameNames('boy', 2, 5, '.png', 3), 5);    
     },
 
     update: function(){
-        sun.angle += 0.7;
+        game.sun.angle += 0.7;
 
-        cloud1.x += 0.5;
-        if(cloud1.x > game.width){
-            cloud1.x = -500;
+        game.cloud1.x += 0.5;
+        if(game.cloud1.x > game.width){
+            game.cloud1.x = -500;
         }
 
-        cloud2.x += 0.4;
-        if(cloud2.x > game.width){
-            cloud2.x = -200;
+        game.cloud2.x += 0.4;
+        if(game.cloud2.x > game.width){
+            game.cloud2.x = -200;
         }
 
-        cloud3.x += 0.6;
-        if(cloud3.x > game.width){
-            cloud3.x = -500;
+        game.cloud3.x += 0.6;
+        if(game.cloud3.x > game.width){
+            game.cloud3.x = -500;
         }
         
-        this.moveCharacter(boy1, 1000, "right", 4);
+        this.moveCharacter(game.boy1, 1000, "right", 4);
     },
 
     
