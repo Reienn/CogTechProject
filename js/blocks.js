@@ -7,6 +7,7 @@ let blocksState = {
         game.clickSound = game.add.audio('clickSound');
         game.winSound = game.add.audio('winSound');
         game.putSound = game.add.audio('putSound');
+        game.sadSound = game.add.audio('sadSound');
         
         game.blocksBackground = game.add.sprite(0, 0, 'blocksBackground');
         game.boySitting = game.add.sprite(450, -50, 'boySitting');
@@ -174,6 +175,7 @@ let blocksState = {
                 }        
             }else if(blocksOrder[i].blocks.includes(currentSprite)){
                 game.boySitting.frame = 2;
+                game.sadSound.play();
                 currentSprite.position.copyFrom(currentSprite.originalPosition);
             }
         }
