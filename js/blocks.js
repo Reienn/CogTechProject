@@ -1,100 +1,140 @@
-let blocksOrder = [];
-let currentOrder = 1;
+let levels = [
+    {
+        blocksPicture: 'blocksPicture1',
+        placesAttr: [
+            {player: 'G', x: 700, y: 720, source: 'block1.png'},
+            {player: 'Y', x: 700, y: 556, source: 'block5.png'},
+            {player: 'Y', x: 1029, y: 556, source: 'block5.png'},
+            {player: 'G', x: 700, y: 392, source: 'block2.png'},
+            {player: 'G', x: 1029, y: 392, source: 'block2.png'},
+            {player: 'Y', x: 700, y: 228, source: 'block4.png'},
+            {player: 'G', x: 700, y: 28, source: 'block3.png'}
+        ],
+        blocksAttr: [
+            {id: 0, x: 50, y: 900, source: 'block1.png', matchingPlaces: [0]},
+            {id: 3, x: 650, y: 900, source: 'block2.png', matchingPlaces: [3, 4]},
+            {id: 4, x: 950, y: 900, source: 'block2.png', matchingPlaces: [3, 4]},
+            {id: 6, x: 1200, y: 860, source: 'block3.png', matchingPlaces: [6]}
+        ],
+        blocksOrder: [
+            {order: 0, player: 'green', number: 1, blocks: [0], orderPlaces: [0]},
+            {order: 1, player: 'yellow', number: 2, blocks: [1, 2], orderPlaces: [1, 2]},
+            {order: 2, player: 'green', number: 2, blocks: [3, 4], orderPlaces: [3, 4]},
+            {order: 3, player: 'yellow', number: 1, blocks: [5], orderPlaces: [5]},
+            {order: 4, player: 'green', number: 1, blocks: [6], orderPlaces: [6]}
+        ],
+        
+    },
+    {
+        blocksPicture: 'blocksPicture2',
+        placesAttr: [
+            {player: 'G', x: 680, y: 720, source: 'block2.png'},
+            {player: 'G', x: 900, y: 720, source: 'block2.png'},
+            {player: 'G', x: 1120, y: 720, source: 'block2.png'},
+            {player: 'Y', x: 735, y: 556, source: 'block4.png'},
+            {player: 'G', x: 790, y: 392, source: 'block2.png'},
+            {player: 'G', x: 1010, y: 392, source: 'block2.png'},
+            {player: 'Y', x: 900, y: 228, source: 'block5.png'},
+            {player: 'G', x: 900, y: 64, source: 'block2.png'}
+        ],
+        blocksAttr: [
+            {id: 0, x: 150, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]},
+            {id: 1, x: 375, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]},
+            {id: 2, x: 600, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]},
+            {id: 4, x: 825, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]},            
+            {id: 5, x: 1050, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]},
+            {id: 7, x: 1275, y: 900, source: 'block2.png', matchingPlaces: [0, 1, 2, 4, 5, 7]}
+        ],
+        blocksOrder: [
+            {order: 0, player: 'green', number: 3, blocks: [0, 1, 2, 4, 5, 7], orderPlaces: [0, 1, 2]},
+            {order: 1, player: 'yellow', number: 1, blocks: [3], orderPlaces: [3]},
+            {order: 2, player: 'green', number: 2, blocks: [0, 1, 2, 4, 5, 7], orderPlaces: [4, 5]},
+            {order: 3, player: 'yellow', number: 1, blocks: [6], orderPlaces: [6]},
+            {order: 4, player: 'green', number: 1, blocks: [0, 1, 2, 4, 5, 7], orderPlaces: [7]}
+        ],
+        
+    },
+    {
+        blocksPicture: 'blocksPicture3',
+        placesAttr: [
+            {player: 'G', x: 800, y: 720, source: 'block7.png'},
+            {player: 'Y', x: 642, y: 725, source: 'block15.png'},
+            {player: 'Y', x: 1128, y: 725, source: 'block14.png'},
+            {player: 'Y', x: 800, y: 556, source: 'block11.png'},
+            {player: 'G', x: 800, y: 392, source: 'block8.png'},
+            {player: 'Y', x: 882, y: 228, source: 'block5.png'},
+            {player: 'G', x: 805, y: 69, source: 'block13.png'},
+            {player: 'G', x: 965, y: 69, source: 'block12.png'}
+        ],
+        blocksAttr: [
+            {id: 0, x: 1100, y: 900, source: 'block7.png', matchingPlaces: [0]},
+            {id: 4, x: 400, y: 900, source: 'block8.png', matchingPlaces: [4]},
+            {id: 6, x: 150, y: 905, source: 'block13.png', matchingPlaces: [6]},
+            {id: 7, x: 825, y: 905, source: 'block12.png', matchingPlaces: [7]}
+        ],
+        blocksOrder: [
+            {order: 0, player: 'green', number: 1, blocks: [0], orderPlaces: [0]},
+            {order: 1, player: 'yellow', number: 3, blocks: [1, 2, 3], orderPlaces: [1, 2, 3]},
+            {order: 2, player: 'green', number: 1, blocks: [4], orderPlaces: [4]},
+            {order: 3, player: 'yellow', number: 1, blocks: [5], orderPlaces: [5]},
+            {order: 4, player: 'green', number: 2, blocks: [6, 7], orderPlaces: [6, 7]}
+        ],
+        
+    }
+];
+let currentLevel = 0;
+let currentOrder = 0;
 let hasWon = false;
 
 let blocksState = {
-    create: function(){
+    create: function(){        
+        
         game.clickSound = game.add.audio('clickSound');
         game.winSound = game.add.audio('winSound');
         game.putSound = game.add.audio('putSound');
         game.sadSound = game.add.audio('sadSound');
-        
+
         game.blocksBackground = game.add.sprite(0, 0, 'blocksBackground');
         game.boySitting = game.add.sprite(450, -50, 'boySitting');
-        game.blocksPicture = game.add.sprite(game.width - 400, (game.height/2) - 250, 'blocksPicture');
 
-        game.blockG1Place = game.add.sprite(700, 720, 'blocks', 'block1.png');
-        game.blockG1Place.alpha = 0.4;
-        game.physics.enable(game.blockG1Place, Phaser.Physics.ARCADE);
-        
-        game.blockY1Place = game.add.sprite(700, 556, 'blocks', 'block5.png');
-        game.blockY1Place.visible = false;
-        game.physics.enable(game.blockY1Place, Phaser.Physics.ARCADE);
-        
-        game.blockY2Place = game.add.sprite(1029, 556, 'blocks', 'block5.png');
-        game.blockY2Place.visible = false;
-        game.physics.enable(game.blockY2Place, Phaser.Physics.ARCADE);
-        
-        game.blockG2Place = game.add.sprite(700, 392, 'blocks', 'block2.png');
-        game.blockG2Place.visible = false;
-        game.physics.enable(game.blockG2Place, Phaser.Physics.ARCADE);
+        game.blocksPicture = game.add.sprite(game.width - 400, (game.height/2) - 250, levels[currentLevel].blocksPicture);
+        game.levelNumber = game.add.text(game.width - 340, (game.height/2) - 210, currentLevel+1+'/'+levels.length, {font: "50px Tahoma", fill: "#7f6c27"});
+        game.levelNumber.anchor.setTo(0.5); 
 
-        game.blockG3Place = game.add.sprite(1029, 392, 'blocks', 'block2.png');
-        game.blockG3Place.visible = false;
-        game.physics.enable(game.blockG3Place, Phaser.Physics.ARCADE);
-
-        game.blockY3Place = game.add.sprite(700, 228, 'blocks', 'block4.png');
-        game.blockY3Place.visible = false;
-        game.physics.enable(game.blockY3Place, Phaser.Physics.ARCADE);
- 
-        game.blockG4Place = game.add.sprite(700, 28, 'blocks', 'block3.png');
-        game.blockG4Place.visible = false;
-        game.physics.enable(game.blockG4Place, Phaser.Physics.ARCADE);
+        game.places = game.add.group();
+        levels[currentLevel].placesAttr.forEach(place => {
+            game.places.create(place.x, place.y, 'blocks', place.source);
+        });
+        game.physics.enable(game.places, Phaser.Physics.ARCADE);
+        game.places.children.forEach((child, i) => {
+            if(i < levels[currentLevel].blocksOrder[0].number){
+                child.alpha = 0.4;
+            }else{
+                child.visible = false;
+            }
+        });
 
 
-        game.blockG1 = game.add.sprite(50, 900, 'blocks', 'block1.png');
-        game.blockG1.originalPosition = {x: 50, y: 900};
-        game.physics.enable(game.blockG1, Phaser.Physics.ARCADE);
-        game.blockG1.inputEnabled = true;
-        game.blockG1.input.enableDrag(true);
-        game.blockG1.events.onDragStop.add(function(currentSprite){
-            this.stopDrag(currentSprite, [game.blockG1Place]);
-          }, this);
+        game.playBlocks = game.add.group();
+        levels[currentLevel].blocksAttr.forEach(block => {
+            game.playBlocks.create(block.x, block.y, 'blocks', block.source);
+        });
+        game.physics.enable(game.playBlocks, Phaser.Physics.ARCADE);
+        game.playBlocks.children.forEach((child, i) => {            
+            child.matchingPlaces = levels[currentLevel].blocksAttr[i].matchingPlaces;
+            child.originalPosition = {x: child.x, y: child.y};
+            child.id = levels[currentLevel].blocksAttr[i].id;
+            child.inputEnabled = true;
+            child.input.enableDrag(true);
+            child.events.onDragStop.add(function(currentSprite){
+                this.stopDrag(currentSprite, child.matchingPlaces);
+            }, this);            
 
-        game.blockG2 = game.add.sprite(650, 900, 'blocks', 'block2.png');
-        game.blockG2.originalPosition = {x: 650, y: 900};
-        game.physics.enable(game.blockG2, Phaser.Physics.ARCADE);
-        game.blockG2.inputEnabled = true;
-        game.blockG2.input.enableDrag(true);
-        game.blockG2.events.onDragStop.add(function(currentSprite){
-            this.stopDrag(currentSprite, [game.blockG2Place, game.blockG3Place]);
-        }, this);
-
-        game.blockG3 = game.add.sprite(950, 900, 'blocks', 'block2.png');
-        game.blockG3.originalPosition = {x: 950, y: 900};
-        game.physics.enable(game.blockG3, Phaser.Physics.ARCADE);
-        game.blockG3.inputEnabled = true;
-        game.blockG3.input.enableDrag(true);
-        game.blockG3.events.onDragStop.add(function(currentSprite){
-            this.stopDrag(currentSprite, [game.blockG2Place, game.blockG3Place]);
-        }, this);
-
-        game.blockG4 = game.add.sprite(1200, 860, 'blocks', 'block3.png');
-        game.blockG4.originalPosition = {x: 1200, y: 860};
-        game.physics.enable(game.blockG4, Phaser.Physics.ARCADE);
-        game.blockG4.inputEnabled = true;
-        game.blockG4.input.enableDrag(true);
-        game.blockG4.events.onDragStop.add(function(currentSprite){
-            this.stopDrag(currentSprite, [game.blockG4Place]);
-        }, this);
-
-        blocksOrder = [
-            {order: 1, player: 'green', blocks: [game.blockG1]},
-            {order: 2, player: 'yellow', blocks: [game.blockY1Place, game.blockY2Place]},
-            {order: 3, player: 'green', blocks: [game.blockG2, game.blockG3]},
-            {order: 4, player: 'yellow', blocks: [game.blockY3Place]},
-            {order: 5, player: 'green', blocks: [game.blockG4]}
-        ];
+        });
 
 
         game.stars = game.add.physicsGroup();
-        for (let i = 0; i < 100; i++){
-            game.stars.create(game.world.randomX, game.world.randomX-600, 'star2');
-        }
-        game.stars.visible = false;
-        game.stars.forEach(function(star){
-            star.anchor.setTo(0.5);
-        });
+        
 
 
         game.backButton = game.add.button(100, 100, 'backButton', this.backToRoom, this, 1, 0, 2);
@@ -124,72 +164,86 @@ let blocksState = {
     },
    
     stopDrag: function(currentSprite, endSprite){
-        for(let i=0; i < blocksOrder.length; i++){
-            
-            if(blocksOrder[i].blocks.includes(currentSprite) && blocksOrder[i].order <= currentOrder){
+        let blocksOrder = levels[currentLevel].blocksOrder;
+            if(blocksOrder[currentOrder].player == 'green' && blocksOrder[currentOrder].blocks.includes(currentSprite.id)){
                 game.boySitting.frame = 0;
-
-                endSprite.forEach(element => {
-                    if(!element.blockDragging && game.physics.arcade.overlap(currentSprite, element)){
-                        currentSprite.input.draggable = false;
-                        currentSprite.position.copyFrom(element.position);
-                        game.putSound.play();
-                        element.blockDragging = true;
-                        points++;
-                        game.pointsNumber.setText(points);
-                        game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
-
-                        let index = blocksOrder[i].blocks.indexOf(currentSprite);
-                        if (index > -1) {
-                            blocksOrder[i].blocks.splice(index, 1);
-                        }
+                endSprite.forEach(id => {
+                    if(blocksOrder[currentOrder].orderPlaces.includes(id) && blocksOrder[currentOrder].number != 0 && !game.places.children[id].used && game.physics.arcade.overlap(currentSprite, game.places.children[id])){
+                        currentSprite.position.copyFrom(game.places.children[id].position);
+                        if(currentSprite.x == game.places.children[id].position.x && currentSprite.y == game.places.children[id].position.y) {
+                            currentSprite.input.draggable = false;                        
+                            game.places.children[id].used = true;
+                            game.putSound.play();                            
+                            points++;
+                            game.pointsNumber.setText(points);
+                            game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
+                            blocksOrder[currentOrder].number--;
+                        }                    
                     }
                 });
 
-                if(blocksOrder[i].blocks.length == 0 ){
-                        
-                    if(blocksOrder[i+1]){
-                        for(let j=0; j < blocksOrder[i+1].blocks.length; j++){
-                        
+                if(blocksOrder[currentOrder].number == 0 ){
+                    currentOrder++;
+                    if(levels[currentLevel].blocksOrder[currentOrder]){
+                        levels[currentLevel].blocksOrder[currentOrder].blocks.forEach((nextBlock, j) => {
+                            
                             setTimeout(function(){
                                 game.boySitting.frame = 1;
                             }, (j+1)*1000);
                             setTimeout(function(){
-                                blocksOrder[i+1].blocks[j].visible = true;
+                                let placeId = nextBlock;                                
+                                game.places.children[placeId].visible = true;
                                 game.putSound.play();
                             }, (j+1)*1000);
                             setTimeout(function(){
                                 game.boySitting.frame = 0;
                             }, (j+1)*1500);
                            
-                        }
+                        });
                         setTimeout(function(){
-                            currentOrder +=2;
-                        }, blocksOrder[i+1].blocks.length*1500);
+                            currentOrder++;
+                        }, levels[currentLevel].blocksOrder[currentOrder].number*1500);
                     }else{
                         game.boySitting.frame = 0;
                         hasWon = true;
                         game.winSound.play();
-                        game.stars.visible = true;                        
+                        
+                        for (let i = 0; i < 100; i++){
+                            game.stars.create(game.world.randomX, game.world.randomX-600, 'star2');
+                        }
+                        game.stars.forEach(function(star){
+                            star.anchor.setTo(0.5);
+                        });
+
+                        setTimeout(function(){
+                            if(levels[currentLevel+1]){
+                                currentLevel++;
+                                currentOrder = 0;
+                                game.state.start(game.state.current);
+                            }                            
+                        }, 5000);                       
                     }
                 }        
-            }else if(blocksOrder[i].blocks.includes(currentSprite)){
+            }else if(blocksOrder[currentOrder].player == 'green' && !blocksOrder[currentOrder].blocks.includes(currentSprite.id)){
+                currentSprite.position.copyFrom(currentSprite.originalPosition);
+            }else if(blocksOrder[currentOrder].player == 'yellow'){
                 game.boySitting.frame = 2;
                 game.sadSound.play();
                 currentSprite.position.copyFrom(currentSprite.originalPosition);
             }
-        }
+        
              
     },
 
     backToRoom: function(){
-        currentOrder = 1;
-        hasWon = false;
+        currentOrder = 0;
+        currentLevel = 0;
+        hasWon = false;        
         game.clickSound.play();
         game.state.start('room');
     },
     
-    changeFull: function(){
+    changeFull: function(){12
         game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();

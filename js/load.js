@@ -1,9 +1,10 @@
 let points = 0;
 let loadState = {
-    preload: function(){
-        game.load.audio('winSound', 'assets/audio/win.mp3');
-        game.load.audio('putSound', 'assets/audio/put.mp3');
+    preload: function(){              
         game.load.audio('clickSound', 'assets/audio/click.mp3');
+        game.load.audio('menuSound', 'assets/audio/menu.mp3');
+        game.load.audio('winSound', 'assets/audio/win.mp3'); 
+        game.load.audio('putSound', 'assets/audio/put.mp3');
         game.load.audio('sadSound', 'assets/audio/sad.mp3');
 
         game.load.spritesheet('backButton', 'assets/images/back_button.png', 180, 180);
@@ -19,7 +20,9 @@ let loadState = {
         game.load.atlasJSONHash('boy1', 'assets/images/characters/boy1.png', 'assets/images/characters/boy1.json');
         
         game.load.image('blocksBackground', 'assets/images/house/blocks_background.png');
-        game.load.image('blocksPicture', 'assets/images/house/blocks_picture.png');
+        game.load.image('blocksPicture1', 'assets/images/house/blocks_picture_1.png');
+        game.load.image('blocksPicture2', 'assets/images/house/blocks_picture_2.png');        
+        game.load.image('blocksPicture3', 'assets/images/house/blocks_picture_3.png');
         game.load.atlasJSONHash('blocks', 'assets/images/house/blocks.png', 'assets/images/house/blocks.json');
         game.load.spritesheet('boySitting', 'assets/images/house/boy_sitting.png', 389, 752);
         
@@ -27,6 +30,8 @@ let loadState = {
         game.load.spritesheet('yesPCS', 'assets/images/yes_PCS.png', 300, 300);
         
         game.load.image('park', 'assets/images/park/park.png');
+        game.load.image('parkObjects', 'assets/images/park/parkObjects.png');
+        game.load.spritesheet('dog', 'assets/images/park/dog.png', 545, 382);
 
         game.load.image('shop', 'assets/images/shop/shop.png');
         
