@@ -10,7 +10,7 @@ let roomState = {
         playBubble.visible = false;
         
         game.yesButton = game.add.button((game.width/2)-150, game.height - 350, 'yesPCS', this.playBlocks, this, 1, 0, 1);
-       // game.yesButton.visible = false;
+        game.yesButton.visible = false;
         
         game.backButton = game.add.button(100, 100, 'backButton', this.backToMenu, this, 1, 0, 2);
         game.backButton.anchor.setTo(0.5);
