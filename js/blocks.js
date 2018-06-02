@@ -1,3 +1,7 @@
+let currentLevel = 0;
+let currentOrder = 0;
+let hasWon = false;
+
 let levels = [
     {
         blocksPicture: 'blocksPicture1',
@@ -82,9 +86,6 @@ let levels = [
         
     }
 ];
-let currentLevel = 0;
-let currentOrder = 0;
-let hasWon = false;
 
 let blocksState = {
     create: function(){        
@@ -134,8 +135,6 @@ let blocksState = {
 
 
         game.stars = game.add.physicsGroup();
-        
-
 
         game.backButton = game.add.button(100, 100, 'backButton', this.backToRoom, this, 1, 0, 2);
         game.backButton.anchor.setTo(0.5);
@@ -184,8 +183,8 @@ let blocksState = {
 
                 if(blocksOrder[currentOrder].number == 0 ){
                     currentOrder++;
-                    if(levels[currentLevel].blocksOrder[currentOrder]){
-                        levels[currentLevel].blocksOrder[currentOrder].blocks.forEach((nextBlock, j) => {
+                    if(blocksOrder[currentOrder]){
+                        blocksOrder[currentOrder].blocks.forEach((nextBlock, j) => {
                             
                             setTimeout(function(){
                                 game.boySitting.frame = 1;
@@ -202,7 +201,7 @@ let blocksState = {
                         });
                         setTimeout(function(){
                             currentOrder++;
-                        }, levels[currentLevel].blocksOrder[currentOrder].number*1500);
+                        }, blocksOrder[currentOrder].number*1500);
                     }else{
                         game.boySitting.frame = 0;
                         hasWon = true;
@@ -238,12 +237,19 @@ let blocksState = {
     backToRoom: function(){
         currentOrder = 0;
         currentLevel = 0;
-        hasWon = false;        
+        hasWon = false;
+        
+        levels.forEach(level => {
+            level.blocksOrder.forEach( order => {
+                order.number = order.orderPlaces.length;
+            });
+        });
+        
         game.clickSound.play();
         game.state.start('room');
     },
     
-    changeFull: function(){12
+    changeFull: function(){
         game.clickSound.play();
         if(game.scale.isFullScreen){
             game.scale.stopFullScreen();
