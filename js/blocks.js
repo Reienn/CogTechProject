@@ -84,6 +84,40 @@ let levels = [
             {order: 4, player: 'green', number: 2, blocks: [6, 7], orderPlaces: [6, 7]}
         ],
         
+    },
+    {
+        blocksPicture: 'blocksPicture4',
+        placesAttr: [
+            {player: 'G', x: 650, y: 720, source: 'block7.png'},
+            {player: 'G', x: 978, y: 720, source: 'block7.png'},
+            {player: 'Y', x: 814, y: 392, source: 'block9.png'},
+            {player: 'Y', x: 650, y: 556, source: 'block5.png'},
+            {player: 'Y', x: 1142, y: 556, source: 'block5.png'},
+            {player: 'G', x: 650, y: 392, source: 'block2.png'},
+            {player: 'G', x: 1142, y: 392, source: 'block2.png'},
+            {player: 'Y', x: 650, y: 228, source: 'block11.png'},
+            {player: 'Y', x: 978, y: 228, source: 'block11.png'},
+            {player: 'G', x: 650, y: 64, source: 'block2.png'},
+            {player: 'G', x: 896, y: 64, source: 'block2.png'},
+            {player: 'G', x: 1142, y: 64, source: 'block2.png'}
+        ],
+        blocksAttr: [
+            {id: 0, x: 1410, y: 900, source: 'block7.png', matchingPlaces: [0, 1]},
+            {id: 1, x: 1050, y: 900, source: 'block7.png', matchingPlaces: [0, 1]},
+            {id: 5, x: 450, y: 900, source: 'block2.png', matchingPlaces: [5, 6, 9, 10, 11]},
+            {id: 6, x: 250, y: 900, source: 'block2.png', matchingPlaces: [5, 6, 9, 10, 11]},
+            {id: 9, x: 50, y: 900, source: 'block2.png', matchingPlaces: [5, 6, 9, 10, 11]},
+            {id: 10, x: 650, y: 900, source: 'block2.png', matchingPlaces: [5, 6, 9, 10, 11]},
+            {id: 11, x: 850, y: 900, source: 'block2.png', matchingPlaces: [5, 6, 9, 10, 11]}
+        ],
+        blocksOrder: [
+            {order: 0, player: 'green', number: 2, blocks: [0, 1], orderPlaces: [0, 1]},
+            {order: 1, player: 'yellow', number: 3, blocks: [2, 3, 4], orderPlaces: [2, 3, 4]},
+            {order: 2, player: 'green', number: 2, blocks: [5, 6, 9, 10, 11], orderPlaces: [5, 6]},
+            {order: 3, player: 'yellow', number: 2, blocks: [7, 8], orderPlaces: [7, 8]},
+            {order: 4, player: 'green', number: 3, blocks: [5, 6, 9, 10, 11], orderPlaces: [9, 10, 11]}
+        ],
+        
     }
 ];
 
