@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "boy001.png",
+	"filename": "girl001.png",
 	"frame": {"x":0,"y":0,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
@@ -9,7 +9,7 @@
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy002.png",
+	"filename": "girl002.png",
 	"frame": {"x":337,"y":0,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
@@ -17,7 +17,7 @@
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy003.png",
+	"filename": "girl003.png",
 	"frame": {"x":674,"y":0,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
@@ -25,7 +25,7 @@
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy004.png",
+	"filename": "girl004.png",
 	"frame": {"x":1011,"y":0,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
@@ -33,7 +33,7 @@
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy005.png",
+	"filename": "girl005.png",
 	"frame": {"x":1348,"y":0,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
@@ -41,48 +41,32 @@
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy006.png",
-	"frame": {"x":1685,"y":0,"w":337,"h":696},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":696},
-	"sourceSize": {"w":337,"h":696}
-},
-{
-	"filename": "boy007.png",
-	"frame": {"x":0,"y":697,"w":337,"h":696},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":696},
-	"sourceSize": {"w":337,"h":696}
-},
-{
-	"filename": "boy008.png",
-	"frame": {"x":337,"y":697,"w":337,"h":696},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":696},
-	"sourceSize": {"w":337,"h":696}
-},
-{
-	"filename": "boy009.png",
-	"frame": {"x":674,"y":697,"w":337,"h":696},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":696},
-	"sourceSize": {"w":337,"h":696}
-},
-{
-	"filename": "boy010.png",
-	"frame": {"x":1011,"y":697,"w":337,"h":697},
+	"filename": "girl006.png",
+	"frame": {"x":0,"y":697,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":697},
 	"sourceSize": {"w":337,"h":697}
 },
 {
-	"filename": "boy011.png",
-	"frame": {"x":1348,"y":697,"w":337,"h":697},
+	"filename": "girl007.png",
+	"frame": {"x":337,"y":697,"w":337,"h":697},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":697},
+	"sourceSize": {"w":337,"h":697}
+},
+{
+	"filename": "girl008.png",
+	"frame": {"x":674,"y":697,"w":337,"h":697},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":697},
+	"sourceSize": {"w":337,"h":697}
+},
+{
+	"filename": "girl009.png",
+	"frame": {"x":1011,"y":697,"w":337,"h":697},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":697},
@@ -91,10 +75,10 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "boy1.png",
+	"image": "girl2.png",
 	"format": "RGBA8888",
-	"size": {"w":2022,"h":1394},
+	"size": {"w":1685,"h":1394},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5025964f3f6c7e9a1aedcc501ba8eb78:c424e69b0f5f048897e3d346ec5bfcee:19192c1c85c2d3ff5c9d09d89490779f$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1cb07615f3a4840ad08467bd7bc74a47:9b01874b6a9bbc139ca214d6a01cbc3c:982938c8c0364497cba5c827536c6266$"
 }
 }

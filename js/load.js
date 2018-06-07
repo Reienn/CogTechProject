@@ -11,18 +11,22 @@ let loadState = {
         game.load.spritesheet('fullButton', 'assets/images/full_button.png', 180, 180);
         game.load.image('star', 'assets/images/star.png');
         game.load.image('star2', 'assets/images/star2.png');
-        
+
+        game.load.atlasJSONHash('boy1', 'assets/images/characters/boy1.png', 'assets/images/characters/boy1.json');
+        game.load.atlasJSONHash('girl1', 'assets/images/characters/girl1.png', 'assets/images/characters/girl1.json');
+        game.load.atlasJSONHash('girl2', 'assets/images/characters/girl2.png', 'assets/images/characters/girl2.json');
+
         game.load.image('town_background', 'assets/images/town/town_background.png');
         game.load.atlasJSONHash('town', 'assets/images/town/town.png', 'assets/images/town/town.json');
         
         game.load.image('roomBackground', 'assets/images/house/room_background.png');
         game.load.image('furniture', 'assets/images/house/furniture.png');
-        game.load.atlasJSONHash('boy1', 'assets/images/characters/boy1.png', 'assets/images/characters/boy1.json');
         
         game.load.image('blocksBackground', 'assets/images/house/blocks_background.png');
         game.load.image('blocksPicture1', 'assets/images/house/blocks_picture_1.png');
         game.load.image('blocksPicture2', 'assets/images/house/blocks_picture_2.png');        
         game.load.image('blocksPicture3', 'assets/images/house/blocks_picture_3.png');
+        game.load.image('blocksPicture4', 'assets/images/house/blocks_picture_4.png');
         game.load.atlasJSONHash('blocks', 'assets/images/house/blocks.png', 'assets/images/house/blocks.json');
         game.load.spritesheet('boySitting', 'assets/images/house/boy_sitting.png', 389, 752);
         
@@ -31,6 +35,7 @@ let loadState = {
         
         game.load.image('park', 'assets/images/park/park.png');
         game.load.image('parkObjects', 'assets/images/park/parkObjects.png');
+        game.load.image('hideBubble', 'assets/images/park/hide_bubble.png');
         game.load.spritesheet('dog', 'assets/images/park/dog.png', 545, 382);
 
         game.load.image('shop', 'assets/images/shop/shop.png');

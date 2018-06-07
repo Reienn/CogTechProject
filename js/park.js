@@ -1,6 +1,7 @@
 let parkState = {
     create: function(){
         game.clickSound = game.add.audio('clickSound');
+        game.sadSound = game.add.audio('sadSound');
 
         game.park = game.add.sprite(0, 0, 'park');
         
@@ -29,7 +30,18 @@ let parkState = {
         game.cloud3 = game.add.sprite(40, 60, 'town', 'cloud3.png');
 
         game.dog = game.add.sprite(-480, 630, 'dog');        
+        game.dog.scale.setTo(0.9);
         game.boy1 = game.add.sprite(0, 340, 'boy1');
+        game.boy1.scale.setTo(0.9);
+        /*game.girl1 = game.add.sprite(-300, 340, 'girl1');
+        game.girl1.scale.setTo(0.9);
+        game.girl2 = game.add.sprite(-600, 340, 'girl2');
+        game.girl2.scale.setTo(0.9);
+        game.hideBubble = game.add.sprite(1200, 140, 'hideBubble');
+        game.hideBubble.visible = false;*/        
+
+        game.yesButton = game.add.button((game.width/2)-150, game.height - 350, 'yesPCS', this.playHide, this, 1, 0, 1);
+        game.yesButton.visible = false;
 
         game.backButton = game.add.button(100, 100, 'backButton', this.backToMenu, this, 1, 0, 2);
         game.backButton.anchor.setTo(0.5);
@@ -43,10 +55,14 @@ let parkState = {
         game.pointsNumber.anchor.setTo(0.5);
 
         this.walkAnimation(game.boy1, Phaser.Animation.generateFrameNames('boy', 2, 5, '.png', 3), 5);
+        //this.walkAnimation(game.girl1, Phaser.Animation.generateFrameNames('girl', 2, 5, '.png', 3), 6);
+        //this.walkAnimation(game.girl2, Phaser.Animation.generateFrameNames('girl', 2, 5, '.png', 3), 5);
         game.dog.animations.add('dogWalkAnimation', [0, 1, 0, 2], 6, true);
         game.dog.animations.play('dogWalkAnimation'); 
         
         game.boy1.walkEnd = false;
+        //game.girl1.walkEnd = false;
+        //game.girl2.walkEnd = false;
         game.dog.walkEnd = false;
         
     },
@@ -70,11 +86,17 @@ let parkState = {
         }
         
         if(!game.boy1.walkEnd){
-            this.moveCharacter(game.boy1, 1350, "right", 4);
-        } 
+            this.moveCharacter(game.boy1, 1000, "right", 4);
+        }
+        /*if(!game.girl1.walkEnd){
+            this.moveCharacter(game.girl1, 700, "right", 4);
+        }
+        if(!game.girl2.walkEnd){
+            this.moveCharacter(game.girl2, 400, "right", 4);
+        }*/
         if(!game.dog.walkEnd){
-            this.moveCharacter(game.dog, 800, "right", 4);
-        }       
+            this.moveCharacter(game.dog, 500, "right", 4);
+        }      
     },
 
     
@@ -95,6 +117,10 @@ let parkState = {
                 if(game.dog.walkEnd && game.boy1.walkEnd){
                     this.hideDog();
                 }
+                /*if(game.boy1.walkEnd){
+                    game.hideBubble.visible = true;
+                    game.yesButton.visible = true;
+                }*/
             }
         }else{
             if(character.x > destination){
@@ -106,23 +132,38 @@ let parkState = {
                 if(game.dog.walkEnd && game.boy1.walkEnd){
                     this.hideDog();
                 }
+                /*if(game.boy1.walkEnd){
+                    game.hideBubble.visible = true;
+                    game.yesButton.visible = true;
+                }*/
             }
         } 
     },
 
     hideDog: function(){
         game.dog.visible = false;
+        game.boy1.frame = 9;
+        game.sadSound.play();
         game.dogHidden1.visible = true;
         game.dogHidden1.inputEnabled = true;
-        game.dogHidden1.events.onInputDown.add(this.showDog, {dog1: game.dogHidden1, dog2: game.dogHidden2});
+        game.dogHidden1.events.onInputDown.add(this.showDog, game.dogHidden1);
     },
 
     showDog: function(){
-        this.dog1.visible = false;
-        this.dog2.visible = true;
+        this.visible = false;
+        game.dog.visible = true;
+        game.boy1.frame = 0;
         points++;
         game.pointsNumber.setText(points);
+        game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
     },
+
+    /*playHide: function(){
+        game.clickSound.play();
+        game.yesButton.visible = false;
+        game.hideBubble.visible = false;
+        game.boy1.frame = 10;
+    },*/
 
     backToMenu: function(){
         game.clickSound.play();
