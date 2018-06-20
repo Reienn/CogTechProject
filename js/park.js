@@ -1,7 +1,11 @@
+let i = 0;
+let hasFound = false;
+
 let parkState = {
     create: function(){
         game.clickSound = game.add.audio('clickSound');
         game.sadSound = game.add.audio('sadSound');
+        game.winSound = game.add.audio('winSound');
 
         game.park = game.add.sprite(0, 0, 'park');
         
@@ -23,6 +27,8 @@ let parkState = {
         game.dogHidden2.scale.setTo(0.7);
         game.dogHidden2.visible = false;
 
+        game.dogs = [game.dogHidden1, game.dogHidden2, game.dogHidden3, game.dogHidden4];
+
         game.sun = game.add.sprite(525, 150, 'town', 'sun.png');
         game.sun.anchor.setTo(0.5);
         game.cloud2 = game.add.sprite(800, 40, 'town', 'cloud2.png');
@@ -38,10 +44,12 @@ let parkState = {
         game.girl2 = game.add.sprite(-600, 340, 'girl2');
         game.girl2.scale.setTo(0.9);
         game.hideBubble = game.add.sprite(1200, 140, 'hideBubble');
-        game.hideBubble.visible = false;*/        
+        game.hideBubble.visible = false;        
 
         game.yesButton = game.add.button((game.width/2)-150, game.height - 350, 'yesPCS', this.playHide, this, 1, 0, 1);
-        game.yesButton.visible = false;
+        game.yesButton.visible = false;*/
+
+        game.stars = game.add.physicsGroup();
 
         game.backButton = game.add.button(100, 100, 'backButton', this.backToMenu, this, 1, 0, 2);
         game.backButton.anchor.setTo(0.5);
@@ -96,7 +104,18 @@ let parkState = {
         }*/
         if(!game.dog.walkEnd){
             this.moveCharacter(game.dog, 500, "right", 4);
-        }      
+        }
+        
+        if(hasFound){
+            game.stars.forEachAlive(function(star){
+                if(star.body.y < game.height+50){
+                    star.body.y += Math.random() * 10;
+                    star.angle += Math.random() * 10;
+                }else{
+                    game.stars.remove(star);
+                }                
+            });
+        }
     },
 
     
@@ -144,18 +163,34 @@ let parkState = {
         game.dog.visible = false;
         game.boy1.frame = 9;
         game.sadSound.play();
-        game.dogHidden1.visible = true;
-        game.dogHidden1.inputEnabled = true;
-        game.dogHidden1.events.onInputDown.add(this.showDog, game.dogHidden1);
+        game.dogs[i].visible = true;
+        game.dogs[i].inputEnabled = true;
+        game.dogs[i].events.onInputDown.add(this.showDog, this);
     },
 
     showDog: function(){
-        this.visible = false;
+        game.dogs[i].visible = false;
+        game.dogs[i].inputEnabled = false;
         game.dog.visible = true;
         game.boy1.frame = 0;
         points++;
         game.pointsNumber.setText(points);
         game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
+        if(game.dogs.length > i+1){    
+            i++;
+            game.time.events.add(1300, this.hideDog, this);
+         }else{     
+            game.time.events.add(1000, ()=>{
+                game.winSound.play();
+                hasFound = true;
+                for (let i = 0; i < 100; i++){
+                    game.stars.create(game.world.randomX, game.world.randomX-600, 'star2');
+                }
+                game.stars.forEach(function(star){
+                    star.anchor.setTo(0.5);
+                });
+            });
+         }
     },
 
     /*playHide: function(){
@@ -168,6 +203,8 @@ let parkState = {
     backToMenu: function(){
         game.clickSound.play();
         game.state.start('menu');
+        hasFound = false;
+        i = 0;
     },
     
     changeFull: function(){
