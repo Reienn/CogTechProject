@@ -6,6 +6,7 @@ let loadState = {
         game.load.audio('winSound', 'assets/audio/win.mp3'); 
         game.load.audio('putSound', 'assets/audio/put.mp3');
         game.load.audio('sadSound', 'assets/audio/sad.mp3');
+        game.load.audio('pointSound', 'assets/audio/point.mp3');
 
         game.load.spritesheet('backButton', 'assets/images/back_button.png', 180, 180);
         game.load.spritesheet('fullButton', 'assets/images/full_button.png', 180, 180);

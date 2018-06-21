@@ -6,6 +6,7 @@ let parkState = {
         game.clickSound = game.add.audio('clickSound');
         game.sadSound = game.add.audio('sadSound');
         game.winSound = game.add.audio('winSound');
+        game.pointSound = game.add.audio('pointSound');
 
         game.park = game.add.sprite(0, 0, 'park');
         
@@ -175,6 +176,7 @@ let parkState = {
         game.boy1.frame = 0;
         points++;
         game.pointsNumber.setText(points);
+        game.pointSound.play();
         game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
         if(game.dogs.length > i+1){    
             i++;

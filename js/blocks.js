@@ -128,6 +128,7 @@ let blocksState = {
         game.winSound = game.add.audio('winSound');
         game.putSound = game.add.audio('putSound');
         game.sadSound = game.add.audio('sadSound');
+        game.pointSound = game.add.audio('pointSound');
 
         game.blocksBackground = game.add.sprite(0, 0, 'blocksBackground');
         game.boySitting = game.add.sprite(450, -50, 'boySitting');
@@ -209,6 +210,7 @@ let blocksState = {
                             game.putSound.play();                            
                             points++;
                             game.pointsNumber.setText(points);
+                            game.pointSound.play();
                             game.add.tween(game.star).to( { angle: 360 }, 1000, Phaser.Easing.Linear.None, true);
                             blocksOrder[currentOrder].number--;
                         }                    
